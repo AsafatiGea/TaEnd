@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TAEND
 
-## Getting Started
+Toko online single-vendor berbasis Next.js. Katalog berada di sisi lokal, keranjang disimpan di browser, dan pesanan disiapkan untuk dikirim melalui WhatsApp pemilik toko.
 
-First, run the development server:
+## Menjalankan proyek
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Buka http://localhost:3000 untuk melihat situs.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Mengelola katalog
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Edit `data/products.ts` untuk menambahkan, mengubah, atau menghapus produk. Setiap produk memiliki ID, nama, slug, deskripsi, harga, kategori, URL gambar, stok, ketersediaan, dan penanda demo. Nilai `discountPrice` bersifat opsional. Harga ditulis sebagai angka Rupiah tanpa pemisah.
 
-## Learn More
+Data produk yang disertakan saat ini adalah **data demo**, bukan produk asli TAEND. Ganti informasi demo dan pastikan foto, harga, serta stok benar sebelum mempublikasikan toko. Gambar demo menggunakan URL Unsplash; produk baru dapat memakai URL gambar sendiri atau placeholder lokal.
 
-To learn more about Next.js, take a look at the following resources:
+## Keranjang dan pemesanan
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Keranjang disimpan pada `localStorage` browser. Checkout membuka WhatsApp pemilik toko di nomor +62 821-6571-3526 dengan rincian produk, jumlah, harga, subtotal, nama, alamat, dan catatan. Ongkos kirim belum dihitung dan dikonfirmasi melalui WhatsApp. Tidak ada database atau pencatatan pesanan otomatis.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Rute utama
 
-## Deploy on Vercel
+- `/` — Beranda
+- `/produk` — Semua produk, pencarian, filter kategori, dan pengurutan
+- `/kategori` — Daftar kategori
+- `/produk/[slug]` — Detail produk
+- `/keranjang` — Keranjang belanja
+- `/checkout` — Checkout WhatsApp
+- `/tentang` dan `/kontak` — Informasi TAEND
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Project dapat dibangun untuk deployment Vercel dengan `npm run build`.

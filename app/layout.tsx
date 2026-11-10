@@ -1,8 +1,8 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "AsafatiStore",
-  description: "Digital Marketplace by Asafati",
+  title: "TAEND — Toko Pilihan untuk Kebutuhanmu",
+  description: "Belanja berbagai produk pilihan dengan mudah dan praktis melalui TAEND.",
 };
 
 export default function RootLayout({
@@ -12,7 +12,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id">
-      <body className="bg-black text-white">{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
